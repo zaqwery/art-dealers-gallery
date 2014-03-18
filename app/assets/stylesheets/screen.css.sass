@@ -1,0 +1,110 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset"
+
+// To configure blueprint, edit the partials/base.sass file.
+@import "partials/base"
+@import "blueprint"
+
+// Combine the partials into a single screen stylesheet.
+@import "partials/page"
+@import "partials/form"
+@import "compass/css3"
+@import "compass/layout/stretching"
+@import "compass/utilities"
+
+//Elements sass
+@import "images"
+@import "artists"
+//jQuery UI
+@import "partials/icon"
+
+@media print 
+  html, body
+    display: none
+    visibility: hidden
+    width: 100%
+    
+// Play Sand Box Here
+.img_bg_txt
+  color: white
+    
+.bg_tmp
+  $stretch-color: #aaa
+  border: 2px solid darken($stretch-color, 30%)
+  background-color: $stretch-color
+
+#container
+  //+container
+  //+showgrid()
+  height: auto
+
+.streched
+  @extend .bg_tmp
+  //display: block
+  //vertical-align: middle
+
+#header
+  @extend .streched
+  +stretch-x
+  text-align: right
+  position: fixed
+  top: 0
+  li
+    +inline-block
+
+#footer_bg
+  //@extend: .bg_tmp
+  background: red
+  position: fixed
+  bottom: 0
+  width: 100%
+  height: 50px
+  z-index: 1
+  
+#new_form
+  //@extend .bg_tmp
+  +column(2)
+  text-align: right
+  clear: both
+  position: absolute
+  left: 20px
+
+#maincontent
+  position: absolute
+  //z-index: 1
+  margin: 1em
+  border: 5px
+
+#container
+  width: 100%
+
+.thumb_container
+  @extend .bg_tmp
+  position: fixed
+  top: 0px
+  left: 30px
+  //+inline-block
+  background: grey
+  //color: white
+  //+column(20)
+  width: 700px
+  margin-top: 5em
+  li
+    //position: relative
+    +inline-block
+
+.img_wrapper
+  display: block
+
+.img_control
+  padding-top: 20px
+
+.fullBg
+  position: absolute
+  top: 0
+  left: 0
+  overflow: hidden
+
+
+
+

@@ -1,0 +1,30 @@
+= simple_form_for @image, :html => {:multipart => true} do |f|
+  -if @image.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@image.errors.count, "error")} prohibited this image from being saved:"
+      %ul
+        - @image.errors.full_messages.each do |msg|
+          %li= msg
+  = f.input :picture, :label => 'Изоброжение', :as => :file
+  = f.input :name, :label => 'Название' 
+  = f.input :year, :label => 'Год'
+  = f.input :technique, :label => 'Техника Исполнения'
+  = f.input :dimensions, :label => 'Размеры'
+  .artist_droppable
+    =f.hidden_field :artist_id
+  /%p
+  /= f.input :tag_list, :label => 'Tags'
+    
+  .actions
+    = f.submit 'Save'
+    /%p= debug @image
+
+  #set_artist
+    -fetch_artists
+    .artists
+      -@artists.each do |artist|
+        %ul
+          %li
+            = artist.name 
+            = hidden_field_tag :artist_id, artist.id
+          /= debug artist

@@ -1,0 +1,6 @@
+#footer_bg
+- @artists.each do |artist|
+  %ul
+    %li.artist_info
+      = image_tag artist.avatar.thumb('150x150').url
+      = artist.name

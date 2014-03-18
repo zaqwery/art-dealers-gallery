@@ -1,0 +1,8 @@
+%h1 Editing artist
+
+#img_form
+  = image_tag @artist.avatar.thumb('150x').url
+  = render 'form'
+  = yield :existing_artist
+
+= link_to 'Back', artists_path

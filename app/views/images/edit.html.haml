@@ -1,0 +1,7 @@
+%h1 Editing image
+
+#img_form
+  = image_tag @image.picture.thumb('x300').url
+  = render 'form'
+
+= link_to 'Back', images_path

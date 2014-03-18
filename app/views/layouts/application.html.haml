@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title 
+      = @title || "try"
+    = javascript_include_tag "application"
+    = stylesheet_link_tag 'application', :media => 'screen, projection'
+    -#= stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    /[if lt IE 8]
+    -#= stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    = csrf_meta_tag
+    %noscript
+      %meta{:content => "0;URL=error-no-javascript.html", 'http-equiv' => "REFRESH"}/
+    %meta{:content => "no", 'http-equiv' => "imagetoolbar"}/
+  %body
+    -#%p{:class = "notice"}
+    -#  = notice
+    -#%p{:class = "alert"}
+    -#  = alert
+
+    #header 
+      = render "gallery/header"
+    #container
+      = yield
+    = yield :bg
+    #footer 
+      = yield :footer

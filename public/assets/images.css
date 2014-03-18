@@ -1,0 +1,20 @@
+/* line 5, ../../app/assets/stylesheets/images.css.sass */
+.artist_droppable {
+  position: relative;
+  width: 300px;
+  height: 100px;
+  background: #cccccc;
+}
+
+/* line 12, ../../app/assets/stylesheets/images.css.sass */
+#set_artist {
+  margin: 2em;
+}
+
+/* line 16, ../../app/assets/stylesheets/images.css.sass */
+.artists li {
+  background: #ff9999;
+  padding: 1em;
+  width: 100px;
+  list-style: none;
+}

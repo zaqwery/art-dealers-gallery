@@ -1,0 +1,29 @@
+- content_for :header do  
+  #new_form
+    = link_to 'New Image', new_image_path
+    
+%ul.thumb_container
+  - @images.each do |image|
+    - @image = image
+    %li.img_wraper
+      = link_to @image, :class => "thumb", :remote => true, 'data-artist' => @image.artist.name.gsub(" ", "-"), 'data-id' => image.id, 'data-type' => :json  do
+        = image_tag @image.picture.thumb('150x150').url
+      -#= link_to 'this.artist', image.artist, :remote => true, :id => image.artist_id, 'data-type' => :json
+-content_for :bg do
+  = image_tag @image.picture.url, :class => "background", 'data-artist' => @image.artist.name.gsub(" ", "-"), :oncontextmenu =>"return false" unless @bg_image.class == NilClass
+
+- content_for :footer do
+  -#= render 'artists/display', :artist => @image.artist
+  -##footer_bg
+  -#.artist_avatar
+    -#- fetch_artists
+    -#= debug @rtists
+    -#- background_artist(@bg_image.artist)
+    -#= debug @this_artist
+    -#= image_tag @artist.avatar.thumb('150x150').url, :id => @bg_image.artist.id
+    -#= image_tag @bg_image.artist.avatar.thumb('150x150').url
+  .artist_info
+    %ul
+      %li(class = "image_name") #{@bg_image.name}
+      %li(class = "image_dims") #{@bg_image.dimensions}
+      %li= link_to "#{@bg_image.artist.name}", artist_path(:name => @bg_image.artist.name.gsub(" ", "-")), :class => "artist_name"

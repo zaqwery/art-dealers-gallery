@@ -1,0 +1,24 @@
+= simple_form_for @artist, :html => {:multipart => true} do |f|
+  -if @artist.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@artist.errors.count, "error")} prohibited this artist from being saved:"
+      %ul
+        - @artist.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.input :avatar, :label => 'Аватарка', :as => :file
+  = f.input :name, :label => 'Имя Фамилия'
+  = f.input :bio, :label => 'Краткая биография'
+    
+  .actions
+    = f.submit 'Save'
+    %p= debug @artist
+    
+-#-content_for :existing_artist
+-#  %display_imaages
+-#    -artist_images(@artist.id)
+-#    -@artist_images.each do |image|
+-#      %ul
+-#        %li
+-#          = link_to image.picture.url, :class => "artist_image_thumb", :id => image.id do
+-#            = image_tag image.picture.thumb('150x150').url

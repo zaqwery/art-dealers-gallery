@@ -1,0 +1,15 @@
+
+#header 
+  %h1 Listing images
+  
+%ul.img_container
+  - @images.each do |image|
+    %li.img_wraper
+      .img_control
+        = link_to '', image, :class => "icon_show", :title => "Show Image" 
+        = link_to '', edit_image_path(image), :class => "icon_edit", :title => "Edit Image" 
+        = link_to '', image, :confirm => 'Are you sure?', :method => :delete, :class => "icon_delete", :title => "Delete Image" 
+      = image_tag image.picture.thumb('100x100').url, :class => "thumb"
+    
+#footer
+  = link_to 'New Image', new_image_path

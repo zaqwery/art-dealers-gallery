@@ -1,0 +1,21 @@
+- content_for :bg do
+  = image_tag @artist.images.first.picture.url, :class => "background", :oncontextmenu =>"return false" unless @artist.images.class == NilClass
+
+- content_for :footer do
+  .artist_container
+    .artist_info
+      = link_to @artist do
+        = image_tag @artist.avatar.thumb('150x150').url
+        %span(class = "artist_name") #{@artist.name}
+        .img_control
+          = link_to '', @artist, :confirm => 'Are you sure?', :method => :delete, :class => "icon_delete", :title => "Delete Image"
+          = link_to '', edit_artist_path(@artist), :class => "icon_edit", :title => "Edit Image"
+
+    %ul.artist_images
+      - @artist.images.each do |image|
+        %li
+          .img_control
+            = link_to '', image, :confirm => 'Are you sure?', :method => :delete, :class => "icon_delete", :title => "Delete Image"
+            = link_to '', edit_image_path(image), :class => "icon_edit", :title => "Edit Image"
+          =link_to image, :class => "thumb", :remote => true do
+            = image_tag image.picture.thumb("150x150").url

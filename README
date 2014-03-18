@@ -1,0 +1,7 @@
+This is a rails project example where I was exploring the way a gallery could be represented.
+
+The main idea is that site's visual representation is determined by the pictures.
+Javascript/jQuery wrapped in Coffescript is used to help with site's experience and navigation. Site's background is being selected from all pictures in db and scales dynamically to fit any screen size.
+AJAX features are used to assign authors to pictures dynamically.
+User authentication is under construction.
+
